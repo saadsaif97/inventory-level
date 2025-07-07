@@ -2,7 +2,24 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 require('dotenv').config(); // Load .env variables
+const cors = require('cors');
 
+const allowedOrigins = ['https://www.amsel-fashion.com'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin) {
+      return callback(new Error('Origin not allowed'), false);
+    }
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Origin not allowed by CORS'), false);
+    }
+  },
+  methods: ['GET'], // restrict to GET if desired
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 const SHOP = process.env.SHOP;
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
