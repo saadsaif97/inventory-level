@@ -36,6 +36,11 @@ app.get("/", (req, res) => {
   res.status(200).send("Hi");
 });
 
+app.post("/amsel-fashion/inventory-update", (req, res) => {
+  console.log(req)
+  res.send(200).send("updated")
+})
+
 // Generic inventory fetch handler
 async function getInventory({ product_id, shop, accessToken, locationIds }) {
   // 1. Get product variants
