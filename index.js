@@ -27,7 +27,7 @@ const stores = {
   moanet: {
     shop: process.env.MOANET_SHOP,
     accessToken: process.env.MOANET_ACCESS_TOKEN,
-    locationIds: ['79503720773', '101427675461'],
+    locationIds: ['79503720773', '101427675461', '108306825541'],
   },
 };
 
